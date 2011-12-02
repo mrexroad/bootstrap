@@ -57,7 +57,7 @@
   var Modal = function ( content, options ) {
     this.settings = $.extend({}, $.fn.modal.defaults, options)
     this.$element = $(content)
-      .delegate('.close', 'click.modal', $.proxy(this.hide, this))
+      .delegate(this.settings.selector, 'click.modal', $.proxy(this.hide, this))
 
     if ( this.settings.show ) {
       this.show()
@@ -243,6 +243,7 @@
     backdrop: false
   , keyboard: false
   , show: false
+  , selector: '.close'
   }
 
 
